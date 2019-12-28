@@ -1,12 +1,11 @@
 // ==UserScript==
-// @name         custom surviv maps
+// @name         Customs Map Survivio
 // @namespace    https://github.com/notKaiAnderson/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       armaxer
 // @match        *://surviv.io/*
 // @grant        none
-// @updateURL    https://github.com/notKaiAnderson/custom-surviv-skins/raw/master/custom-surviv-skins.user.js
 // @icon         https://i.imgur.com/sr7Dfqh.png
 // ==/UserScript==
 
@@ -14,59 +13,67 @@
     'use strict';
 
 var left = document.querySelector('#ad-block-left');
-left.innerHTML = `<div class="container">
+left.innerHTML = `<div class="wrapper">
   <div class="header">
     <h2>Select map</h2>
   </div>
-  <div class="skins">
-    <div class="skin normalmap">
-      <img src="https://i.imgur.com/xB2vbaR.png" alt="" class="skin-img" />
-      <h4 class="skin-name">Normal Map</h4>
+  <div class="maps">
+    <div class="map normalmap">
+      <img src="https://i.imgur.com/xB2vbaR.png" alt="" class="map-img" />
+      <h4 class="map-name">Normal Map</h4>
     </div>
-    <div class="skin mapcobalt">
-      <img src="https://i.imgur.com/9BUv05j.png" alt="" class="skin-img" />
-      <h4 class="skin-name">Map Cobalt</h4>
+    <div class="map mapcobalt">
+      <img src="https://i.imgur.com/9BUv05j.png" alt="" class="map-img" />
+      <h4 class="map-name">Map Cobalt</h4>
     </div>
-    <div class="skin desertmap">
-      <img src="https://i.imgur.com/f410XOg.png" alt="" class="skin-img" />
-      <h4 class="skin-name">Desert Map</h4>
+    <div class="map desertmap">
+      <img src="https://i.imgur.com/f410XOg.png" alt="" class="map-img" />
+      <h4 class="map-name">Desert Map</h4>
     </div>
-    <div class="skin spookymap">
-      <img src="https://i.imgur.com/orsTb9S.png" alt="" class="skin-img" />
-      <h4 class="skin-name">Halloween Map</h4>
+    <div class="map spookymap">
+      <img src="https://i.imgur.com/orsTb9S.png" alt="" class="map-img" />
+      <h4 class="map-name">Halloween Map</h4>
     </div>
-
-    <div class="skin fanctionmap">
-      <img src="https://i.imgur.com/n2XHuMb.png" alt="" class="skin-img" />
-      <h4 class="skin-name">50v50 Map</h4>
+    <div class="map fanctionmap">
+      <img src="https://i.imgur.com/n2XHuMb.png" alt="" class="map-img" />
+      <h4 class="map-name">50v50 Map</h4>
     </div>
-    <div class="skin savannahmap">
-      <img src="https://i.imgur.com/spGZ26Q.png" alt="" class="skin-img" />
-      <h4 class="skin-name">Savannah Map</h4>
+    <div class="map savannahmap">
+      <img src="https://i.imgur.com/spGZ26Q.png" alt="" class="map-img" />
+      <h4 class="map-name">Savannah Map</h4>
     </div>
-    <div class="skin woodsmap">
-      <img src="https://i.imgur.com/VJJ7e28.png" alt="" class="skin-img" />
-      <h4 class="skin-name">Woods Map</h4>
+     <div class="map springmap">
+     <img src="https://i.imgur.com/gYSwFG2.png" alt="" class"map-img" />
+     <h4 class="map-name">Autumn Map</h4>
     </div>
-     <div class="skin springmap">
-     <img src="https://i.imgur.com/gYSwFG2.png" alt="" class"skin-img" />
-     <h4 class="skin-name">Autumn Map</h4>
+     <div class="map snowmap">
+     <img src="https://i.imgur.com/DDOkX2e.png" alt="" class"map-img />
+     <h4 class="map-name">Winter Map</h4>
   </div>
-</div>
-`
+  <div class="map woodsmap">
+    <img src="https://i.imgur.com/VJJ7e28.png" alt="" class="map-img" />
+    <h4 class="map-name">Woods Map</h4>
+  </div>
+  </div>
+`;
 
-var container = document.querySelector('.container');
-container.setAttribute("style", "width: 100%; overflow-y: scroll; height: 100%;text-align: center;");
+var wrapper = document.querySelector('.wrapper');
+wrapper.setAttribute("style", "width: 100%; overflow-y: scroll; height: 100%;text-align: center; box-sizing: border-box;" );
 
-var skins = document.querySelector('.skins');
-skins.setAttribute("style", "display: flex; flex-wrap: wrap;");
+var maps = document.querySelector('.maps');
+maps.setAttribute("style", "display: flex; flex-wrap: wrap; box-sizing: border-box;");
 
 left.setAttribute("style", "height: 325px; box-sizing: border-box;");
 
-var skin = document.querySelectorAll('.skin');
-skin.forEach(item => {item.setAttribute("style", "flex-grow: 1; flex-basis: 50%; cursor: pointer;")})
+var map = document.querySelectorAll('.map');
+map.forEach(item => {item.setAttribute("style", "flex-grow: 1; flex-basis: 25%; cursor: pointer; box-sizing: border-box;")})
 
-
+function addStyleString(str) {
+  var node = document.createElement('style');
+  node.innerHTML = str;
+  document.body.appendChild(node);
+}
+addStyleString('.active { color: green; border: 2px solid #668e38;  }');
 
 
 function mapcobalt() {
@@ -91,42 +98,29 @@ xx.biome.colors.riverbank= 0x905e24 ;
 function desertmap() {
 var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.beach= 0xc9843a ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.grass= 0xdfa757 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.underground= 0x3d0d03 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
-xx.biome.colors.water= 0x8a9b4e ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.riverbank= 0xb25e24 ;
+xx.biome.colors.water= 0x8a9b4e ;
 
 }
 
 function spookymap() {
 var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.beach= 0x64410e ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.grass= 0x212404 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.underground= 0x120801 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.water= 0x280000 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.riverbank= 0x3c1b05 ;
 }
 
 function aquaticAvenger() {
 var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.beach= 0xCB7132 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.grass= 0xB4B02E ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.underground= 0x3D0D03 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.water= 0x41A4AA ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.riverbank= 0x653313 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.background= 0x1C5B5F ;
 
 }
@@ -144,60 +138,88 @@ xx.biome.colors.riverbank= 0x653313 ;
 function springmap() {
 var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.beach= 0xefb35b ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.grass= 0x8e832a ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.underground= 0x1b0d03 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.water= 0x3282ab ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
 xx.biome.colors.riverbank= 0x77360b ;
 
 }
+function snowmap() {
+var xx = webpackJsonp([],null,["d5ec3c16"]);
+xx.biome.colors.beach= 0xcdb35b ;
+xx.biome.colors.grass= 0xbdbdbd ;
+xx.biome.colors.underground= 0x1b0d03 ;
+xx.biome.colors.water= 0x0c4d51 ;
+xx.biome.colors.riverbank= 0x905e24 ;
+}
+
 
 
 // woods map
 
 function woodsmap () {
-var xx = webpackJsonp([],null,["d5ec3c16"]);
-xx.biome.colors.beach= 0xf4ae48 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
-xx.biome.colors.grass= 0x5c910a ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
-xx.biome.colors.underground= 0x1b0d03 ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
-xx.biome.colors.water= 0x3282ab ;
-var xx = webpackJsonp([],null,["d5ec3c16"]);
-xx.biome.colors.riverbank= 0x8a8a8a ;
+  var xx = webpackJsonp([],null,["d5ec3c16"]);
+  xx.biome.colors.beach= 0xf4ae48 ;
+  xx.biome.colors.grass= 0x5c910a ;
+  xx.biome.colors.underground= 0x1b0d03 ;
+  xx.biome.colors.water= 0x3282ab ;
+  xx.biome.colors.riverbank= 0x8a8a8a ;
 }
 
 
-skin.forEach(function (item) {
+function removeBorder() {
+  map.forEach(item => { item.classList.remove('active') })
+}
+
+map.forEach(function (item) {
+        var background = document.querySelector('#background');
         item.addEventListener('click', function () {
 
-            if (item.className == "skin mapcobalt") {
+            if (item.className == "map mapcobalt") {
                 mapcobalt();
+                removeBorder();
+                item.className += " active";
             }
-            if (item.className == "skin normalmap") {
+            if (item.className == "map normalmap") {
                 normalmap();
+                removeBorder();
+                item.className += " active";
             }
-            if (item.className == "skin desertmap") {
+            if (item.className == "map desertmap") {
                 desertmap();
+                removeBorder();
+                item.className += " active";
             }
-            if (item.className == "skin spookymap") {
+            if (item.className == "map spookymap") {
+                background.style.backgroundImage = "url('https://i.imgur.com/u5jH3co.png')";
                 spookymap();
+                removeBorder();
+                item.className += " active";
             }
-            if (item.className == "skin savannahmap") {
+            if (item.className == "map savannahmap") {
                 aquaticAvenger();
+                removeBorder();
+                item.className += " active";
             }
-            if (item.className == "skin fanctionmap") {
+            if (item.className == "map fanctionmap") {
                 factionmap();
+                removeBorder();
+                item.className += " active";
             }
-            if (item.className == "skin woodsmap") {
+            if (item.className == "map woodsmap") {
                 woodsmap();
+                removeBorder();
+                item.className += " active";
             }
-            if (item.className == "skin springmap") {
+            if (item.className == "map snowmap") {
+                snowmap();
+                removeBorder();
+                item.className += " active";
+            }
+            if (item.className == "map springmap") {
                 springmap();
+                removeBorder();
+                item.className += " active";
             }
         });
     });
