@@ -13,8 +13,11 @@ Disclamier : That extension is not a hack or cheating , only you can see these c
              And your account won't be banned because its not a cheat.....
 
 New Updates :
+
 Added Square Selected On maps
+
 Added Winter Map (Sorry forgot to add it in v0.1)
+
 Changed the top maps (was 2 and now its 3)
 
 In the next update :
